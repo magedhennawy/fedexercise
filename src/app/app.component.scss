@@ -17,6 +17,10 @@ li { display:inline;}
   width: 100% !important;
 }
 
+.modal-body {
+  text-align:center;
+}
+
 .selectedImage{
   width:100%;
   position:relative }
@@ -51,7 +55,7 @@ p {
 }
 
 .arrow-forward{
-  left:1200%;
+  left:100%;
 }
 .arrow-back{
   right:100%;
