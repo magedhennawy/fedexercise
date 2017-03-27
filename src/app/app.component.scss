@@ -1,0 +1,71 @@
+ul { padding:0; width:90%; margin:20px auto}
+
+li { display:inline;}
+
+.tn{
+  margin:2px 0;
+  box-shadow:#999 1px 1px 3px 1px;
+  cursor: pointer
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 34%;
+  }
+}
+.modal-content {
+  width: 100% !important;
+}
+
+.selectedImage{
+  width:100%;
+  position:relative }
+
+.caption{
+  position:initial;
+  height:70px;
+  width:100%;
+  top:410px;
+  left:0;
+  opacity:0.9;
+  background-color:black;
+  color:white;
+  padding:5px;
+  font-family: Verdana;
+  font-size:12px;
+}
+p {
+  -webkit-margin-before: 5px !important;
+  -webkit-margin-after: 5px !important;
+}
+
+.arrow-back, .arrow-forward{
+  position:absolute;
+  opacity:0.9;
+  background-color:black;
+  padding:10px;
+  top:190px;
+  color:white;
+  text-weight:bold;
+  cursor:pointer;
+}
+
+.arrow-forward{
+  left:1200%;
+}
+.arrow-back{
+  right:100%;
+}
+
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "../app/styles/vendor/ibm-colors";
+
+@import "../app/styles/partials/base";
+@import "../app/styles/partials/layout";
+
+@import "../app/styles/partials/flickr";
+

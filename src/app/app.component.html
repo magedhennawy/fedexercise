@@ -1,0 +1,73 @@
+<section class="flickr-container">
+  <div style="text-align: center">
+    <h2>Flickr Photos</h2>
+  </div>
+  <div class="flickr-container-row search-sorting-row">
+    <div class="search-sorting-row-input">
+      <input placeholder="Search by title" autofocus [(ngModel)]="query.title">
+    </div>
+    <div class="search-sorting-row-input">
+      <select [(ngModel)]="photoOrder">
+        <option value="title">Title (A-Z)</option>
+        <option value="-title">Title (Z-A)</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="selectedImageModal" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="selectedImage" *ngIf="selectedImage">
+            <img src="https://farm{{selectedImage.farm}}.staticflickr.com/{{selectedImage.server}}/{{selectedImage.id}}_{{selectedImage.secret}}.jpg">
+            <div class="arrow-back" (click)=navigate(false)>
+              &lt;
+            </div>
+            <div class="arrow-forward" (click)=navigate(true)>
+              &gt;
+            </div>
+            <div class="caption">
+              <p><strong>{{selectedImage.title}}</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <ul id="thumbnailsList">
+    <li *ngFor="let photo of photos | filterBy: query | orderBy: photoOrder; let i = index" >
+      <img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg" alt="{{photo.title}}" class="tn"
+           width="250" height="175"
+           data-toggle="modal" data-target="#selectedImageModal"
+           (click)=setSelectedImage(photo)>
+    </li>
+  </ul>
+
+
+<!--  <div class="flickr-container-row">
+    <div *ngFor="let photo of photos; let i=index">
+      <article class="flickr-container-row-photo">
+&lt;!&ndash;        <header>
+          <h1>
+            {{photo.title}}
+          </h1>
+        </header>&ndash;&gt;
+        <img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg" alt="{{photo.title}}" class="tn"
+             data-toggle="modal" data-target="#selectedImageModal"
+             (click)=setSelectedImage(photo)>
+
+      </article>
+
+      <div [ngClass]="clearfix(i)"></div>
+    </div>
+  </div>-->
+</section>
+
+
+<div style="text-align: center">
+  <button class="btn btn-primary" (click)="nextPage(true)">NEXT PAGE</button>
+  <button class="btn btn-danger" (click)="nextPage(false)">PREVIOUS PAGE</button>
+</div>
